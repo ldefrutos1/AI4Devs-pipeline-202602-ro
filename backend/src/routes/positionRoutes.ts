@@ -1,5 +1,8 @@
-import { getCandidatesByPosition, getInterviewFlowByPosition, getAllPositions } from '../presentation/controllers/positionController';
-
+import {
+  getCandidatesByPosition,
+  getInterviewFlowByPosition,
+  getAllPositions,
+} from '../presentation/controllers/positionController';
 
 const router = require('express').Router();
 

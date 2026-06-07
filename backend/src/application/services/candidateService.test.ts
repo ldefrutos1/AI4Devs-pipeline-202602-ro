@@ -24,16 +24,20 @@ describe('updateCandidateStage', () => {
       notes: null,
     };
 
-    jest.spyOn(prisma.application, 'findFirst').mockResolvedValue(mockApplication);
+    jest
+      .spyOn(prisma.application, 'findFirst')
+      .mockResolvedValue(mockApplication);
     jest.spyOn(prisma.application, 'update').mockResolvedValue({
       ...mockApplication,
       currentInterviewStep: 2,
     });
 
     const result = await updateCandidateStage(1, 1, 2);
-    expect(result).toEqual(expect.objectContaining({
-      ...mockApplication,
-      currentInterviewStep: 2,
-    }));
+    expect(result).toEqual(
+      expect.objectContaining({
+        ...mockApplication,
+        currentInterviewStep: 2,
+      }),
+    );
   });
 });
