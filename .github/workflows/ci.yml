@@ -28,6 +28,9 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
+      - name: Run lint
+        run: npm exec -- prettier --check "src/**/*.ts"
+
       - name: Generate Prisma client
         run: npm run prisma:generate
 
@@ -58,6 +61,9 @@ jobs:
 
       - name: Install dependencies
         run: npm ci
+
+      - name: Run lint
+        run: npm exec -- eslint src --ext .js,.jsx,.ts,.tsx
 
       - name: Run tests
         run: npm exec -- react-scripts test --watchAll=false --passWithNoTests
